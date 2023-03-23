@@ -5,18 +5,12 @@ Zabbix host xml from snmp network device creator
 
 triggers and graphs will be created automatically for every interface/mem/cpu/vpn and so on
 
+requires: pysnmp
 
+usage: grant SNMP access (use snmp v2 with community string password, allow access from IP of zabbix server) then run tool from zabbix server
 
-requires: snmp-tools and php-snmp
+$ python3 snmp_zabbix.py ip file-name.xml
 
- 
+import xml into zabbix as a host, data will be gathered via SNMP
 
-usage: grant SNMP access (use snmp without password, allow access by zabbix server IP) after then run tool from zabbix server
-
-$ php snmp-zabbix.php ip file-name.xml
-
-after then import this xml into zabbix as a host, data will be gathered via SNMP
-
- 
-
-example: php snmp-zabbix.php 10.2.3.254 file.xml
+example: python3 snmp_zabbix.py 10.1.1.254 file.xml
